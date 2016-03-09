@@ -23,10 +23,20 @@ public class BookShop {
 		int num = key.nextInt();
 		
 		// 입력된 번호에 맞는 책을 찾아 대여 되었음(상태코드=0)을 체크 합니다.
-
+		for( Book book : books ) {
+			if( book.getBookNo() == num ) {
+				book.rent();
+				break;
+			}
+		}
+		
 		System.out.println("*****도서 정보 출력하기******");
 		displayBookInfo(books);
 	}
 
-	
+	public static void displayBookInfo( Book[] books ) {
+		for( Book book : books ) {
+			book.print();
+		}
+	}
 }
